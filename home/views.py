@@ -6,6 +6,13 @@ from home.models import Forum
 from home.form import post_form
 from home.form import cry_form
 
+from django.contrib import messages
+
+
+from django.contrib.auth import authenticate, login, logout
+
+from django.contrib.auth.decorators import login_required
+
 
 
 
@@ -14,6 +21,7 @@ from home.form import cry_form
 
 def home(request):
     blog = Forum.objects.all() 
+    print(request.user)
 
     context= {
         'blog':blog
@@ -23,49 +31,25 @@ def home(request):
 def navbar(request):
     return render(request, 'nav.html')
 
-
-def cry(request):
+@login_required(login_url='login')
+def newPost(request):
     form = post_form(request.POST or None)
     if form.is_valid():
         form.save()
         form = post_form
-
+    
     else:
         bad = form.errors
         context = {
         'bad':bad}
-
     context = {
         'form': form,
         
     }
-
     return render(request, 'newpost.html', context)
 
 
-    def cry(request):
-        form = cry_form(request.POST or None)
-        if form.is_valid():
-            form.save()
-            form = cry_form
-
-    
-        else:
-            bad = form.errors
-            context = {
-            'bad':bad}
-
-        context = {
-            'form': form,
-        
-    }
-
-    return render(request, 'test.html', context)
-
-
-
-
-
+@login_required(login_url='login')
 def blog(request,id_test):
     total = Forum.objects.get(id=id_test)
  
@@ -78,7 +62,10 @@ def blog(request,id_test):
     return render(request, 'land.html', context)
 
 
+def logout_user(request):
+    logout(request)
 
+    return redirect('login')
 
 
 

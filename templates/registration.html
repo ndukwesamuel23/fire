@@ -31,15 +31,16 @@
         <p class="log_p2">{{bad}}</p>
         
         <form action="" method="POST">{% csrf_token %}
-
+            <p>Username</p>
             <input type="text" name="username" id="" class="log_input" placeholder="username">
             <br>
-            
+            <p>Email</p>
             <input type="email" name="email" id="" class="log_input" placeholder="@yahoo.com">
             <br>
+            <p>Password</p>
             <input type="password" name="password1" id="" class="log_input" placeholder="***********">
-            
             <br>
+            <p>Password</p>
             <input type="password" name="password2" id="" class="log_input">
             
             
@@ -48,6 +49,8 @@
             <button class=" log_btn">Continue</button>
 
             <p class="log_p2">I forgot my password</p>
+            
+            <p><a href="{% url 'login'  %}">click here to login</a></p>
            
         
 

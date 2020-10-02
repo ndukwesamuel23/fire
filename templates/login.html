@@ -30,11 +30,12 @@
 
         <p class="log_p2">Have a password? Continue with your email address</p>
         
-        <form action="" method="POST">{% csrf_token %}
+        <form action="" method="POST">
+            {% csrf_token %}
 
-            <label class="log_lab" for="email">Email</label>
+            <label class="log_lab" for="username">Username</label>
             <br>
-            <input class="log_input" type="email" name="email" id="email" placeholder="Email">
+            <input class="log_input" type="text" name="username" id="email" placeholder="username">
             <br>    
 
             <label class="log_lab" for="pawd">Password</label><br>
@@ -42,22 +43,17 @@
             <br>
 
             <button class=" log_btn">Continue</button>
+            <h4> {% for message in messages %}
+                {{message}}
+            {% endfor %}</h4>
+
 
             <p class="log_p2">I forgot my password</p>
-        
+            <p><a href="{% url 'registration'  %}">click here to registration</a></p>
 
         </form>
-
+     
     </div>
 
-    <p>sam</p>
-
-
-    <button class="btn btn-primary">check</button>
-
-
-
-
-    
 </body>
 </html>

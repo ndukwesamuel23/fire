@@ -18,12 +18,15 @@
         <form class="form-inline my-2 my-lg-0  ">
             <input class="form-control mr-sm-2 nav_form" type="search" placeholder="Search" aria-label="Search">
           </form>
+          <p>{{request.user}}</p>
+          <a href="{% url 'logout'  %}">Logout</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       
         <div class="collapse navbar-collapse nav1 " id="navbarSupportedContent">
-             <a href="{% url 'cry'   %}"> <button  class="btn btn-primary">Write a post</button> </a>  
+            
+             <a href="{% url 'newpost'   %}"> <button  class="btn btn-primary">Write a post</button> </a>  
             <div class="nav_3">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-labelledby="ap8fgc84pyzri33lzq14zmuy0ftpgw1x" class="crayons-icon"><title id="ap8fgc84pyzri33lzq14zmuy0ftpgw1x">Connect</title>
                     <path d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10H2l2.929-2.929A9.969 9.969 0 012 12zm4.828 8H12a8 8 0 10-8-8c0 2.152.851 4.165 2.343 5.657l1.414 1.414-.929.929zM8 13h8a4 4 0 11-8 0z"></path>

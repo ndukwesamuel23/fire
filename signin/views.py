@@ -15,6 +15,7 @@ from django.contrib.auth.models import  User
 
 
 from  signin.form import  CreateUserForm
+
 # Create your views here.
 
 
@@ -42,7 +43,6 @@ def testt(request):
 def registerPage(request):
     if request.user.is_authenticated:
         return redirect('home')
-
     else:
         form = CreateUserForm()
         if request.method == 'POST':
@@ -82,24 +82,14 @@ def loginPage(request):
                 return redirect('home')
 
             else:
-                print(
-                messages.info(request, 'username or password is incorret '))
-                print('the is not working ')
+                messages.info(request, 'Password or username not correct')
+                
+                
         return render(request, 'login.html',) 
 
+def logout_user(request):
+    logout(request)
 
-
-# def mmm(request):
-
-#     fire = User.objects.all()
-#     print(fire)
-#     for i in fire:
-#         print(i)
-
-
-#     return render(request, 'test.html',)
-
-    
-
+    return redirect('login')
 
 
