@@ -19,9 +19,6 @@ from home.views import *
 
 from signin.views import registerPage
 from signin.views import loginPage
-
-from signin.views import logout_user
-
 from signin.views import testt
 
 
@@ -33,7 +30,6 @@ urlpatterns = [
     path('', include('home.urls')),
     path('registration/', registerPage,name='registration'),
     path('login/', loginPage, name='login'),
-    # path('logout/', logout_user, name='logout'),
     path('testt/', testt, name='testt'),
 
 ]
